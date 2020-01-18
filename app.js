@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 
+const postsRoute = require('./routes/posts');
+
 const port = process.env.PORT || 3000;
 //Listening to the server
 app.listen(port);
@@ -14,9 +16,7 @@ mongoose.connect(MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true}
 
 
 //Middlewares
-// app.use('/', () => {
-//     console.log('Middleware at home!');
-// });
+app.use('/posts', postsRoute);
 
 
 //Routes
