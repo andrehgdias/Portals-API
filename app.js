@@ -8,7 +8,7 @@ app.listen(port);
 
 //Connecting to the database
 const MONGODB_URL = process.env.MONGODB_URI || '';
-mongoose.connect(MONGODB_URL, { useNewUrlParser: true}, () => {
+mongoose.connect(MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true}, () => {
     console.log('Connected to the database!');
 });
 
