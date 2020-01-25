@@ -10,7 +10,6 @@ router.get('/status', (req, res) => {
     res.send('We are on posts STATUS baby!')
 });
 
-
 router.post('/', (req, res) => {
     console.log(req.body);
 });
