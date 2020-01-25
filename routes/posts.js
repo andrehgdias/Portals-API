@@ -25,7 +25,7 @@ router.delete("/:postId", async (req, res) => {
     const removedPost = await Posts.deleteOne({ _id: req.params.postId });
     res.json(removedPost);
   } catch (err) {
-    res.json({ msg: "Erro ao tentar buscar os dados: ", err });
+    res.json({ msg: "Erro ao tentar deletar os dados: ", err });
   }
 });
 
@@ -46,11 +46,11 @@ router.patch("/:postId", async (req, res) => {
   try {
     const updatedPost = await Posts.updateOne(
       { _id: req.params.postId },
-      { $set: { title: req.body.title, description: req.body.description } }
+      { $set: req.body }
     );
     res.json(updatedPost);
   } catch (err) {
-    res.json({ msg: "Erro ao tentar buscar os dados: ", err });
+    res.json({ msg: "Erro ao tentar atualizar os dados: ", err });
   }
 });
 
