@@ -11,6 +11,15 @@ router.get("/all", async (req, res) => {
   }
 });
 
+router.get("/:postId", async (req, res) => {
+  try {
+    const posts = await Posts.findById(req.params.postId);
+    res.json(posts);
+  } catch (err) {
+    res.json({ msg: "Erro ao tentar buscar os dados: ", err });
+  }
+});
+
 router.get("/status", (req, res) => {
   res.send("We are on posts STATUS baby!");
 });
