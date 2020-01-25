@@ -22,8 +22,8 @@ mongoose.connect(
 //  }
 );
 
-db.on('error', console.error.bind(console, 'Connection error:'));
-db.once('open', function() {
+mongoose.on('error', console.error.bind(console, 'Connection error:'));
+mongoose.once('open', function() {
     console.log("Connected to the database!");
 });
 
