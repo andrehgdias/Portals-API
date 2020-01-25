@@ -16,12 +16,15 @@ router.post("/", (req, res) => {
     description: req.body.description
   });
 
-  post.save((err, post) => {
-    // Create a promise to respond to our request after saving our req.body on the db
-    if (err) res.json({ msg: "Erro ao tentar salvar os dados: ", err });
-
-    res.json(post);
-  });
+  post
+    .save()
+    .then(data => {
+      // Create a promise to respond to our request after saving our req.body on the db
+      res.json(data);
+    })
+    .catch(err => {
+      res.json({ msg: "Erro ao tentar salvar os dados: ", err });
+    });
 });
 
 module.exports = router;
