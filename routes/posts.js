@@ -20,8 +20,13 @@ router.get("/:postId", async (req, res) => {
   }
 });
 
-router.get("/status", (req, res) => {
-  res.send("We are on posts STATUS baby!");
+router.delete("/:postId", async (req, res) => {
+  try {
+    const removedPost = await Posts.deleteOne({_id: req.params.postId});
+    res.json(removedPost);
+  } catch (err) {
+    res.json({ msg: "Erro ao tentar buscar os dados: ", err });
+  }
 });
 
 router.post("/new", async (req, res) => {
@@ -29,7 +34,6 @@ router.post("/new", async (req, res) => {
     title: req.body.title,
     description: req.body.description
   });
-
   try {
     const savedPost = await post.save();
     res.json(savedPost);
