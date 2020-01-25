@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
   });
   
   try {
-    const savedPost = post.save();
+    const savedPost = await post.save();
     res.json(savedPost);
   } catch (err) {
     res.json({ msg: "Erro ao tentar salvar os dados: ", err });
