@@ -11,7 +11,21 @@ router.get("/status", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  console.log(req.body);
+  const post = new Posts({
+    title: req.body.title,
+    description: req.body.description
+  });
+
+  post
+    .save()
+    .exec()
+    .then(data => {
+      // Create a promise to respond to our request after saving our req.body on the db
+      res.json(data);
+    })
+    .catch(err => {
+      res.json({ msg: "Erro ao tentar salvar os dados: ", err });
+    });
 });
 
 module.exports = router;
