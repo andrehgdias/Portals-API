@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const boodyParser = require('body-parser');
 
 const postsRoute = require('./routes/posts');
 
@@ -16,6 +17,7 @@ mongoose.connect(MONGODB_URL, { useNewUrlParser: true, useUnifiedTopology: true}
 });
 
 //Middlewares
+app.use(boodyParser.json()); // Adding a parser to convert any request body to json
 app.use('/posts', postsRoute);
 
 //Routes
