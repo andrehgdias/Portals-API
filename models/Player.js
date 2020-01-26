@@ -7,16 +7,20 @@ const playerSchema = mongoose.Schema({
     unique: true
   },
   balance: {
-    type: Number
+    type: Number,
+    required: true
   },
   qtdExp: {
-    type: Number
+    type: Number,
+    required: true
   },
   qtdEnergy: {
-    type: Number
+    type: Number,
+    required: true
   },
   qtdBatteries: {
-    type: Number
+    type: Number,
+    required: true
   },
   registrationDate: {
     type: Date,
