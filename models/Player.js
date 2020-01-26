@@ -6,24 +6,16 @@ const playerSchema = mongoose.Schema({
     required: true
   },
   balance: {
-    type: Number,
-    required: true
+    type: Number
   },
   qtdExp: {
-    type: Number,
-    required: true
+    type: Number
   },
   qtdEnergy: {
-    type: Number,
-    required: true
+    type: Number
   },
   qtdBatteries: {
-    type: Number,
-    required: true
-  },
-  lastUpdatedDate: {
-    type: Date,
-    default: Date.now
+    type: Number
   },
   registrationDate: {
     type: Date,
