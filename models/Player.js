@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const playerSchema = mongoose.Schema({
   key: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   balance: {
     type: Number
