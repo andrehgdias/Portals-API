@@ -45,7 +45,7 @@ router.post("/new", async (req, res) => {
 router.patch("/:playerKey", async (req, res) => {
   try {
     const updatedPlayer = await Player.updateOne(
-      { _id: req.params.playerKey },
+      { key: req.params.playerKey },
       { $set: req.body }
     );
     res.json(updatedPlayer);
