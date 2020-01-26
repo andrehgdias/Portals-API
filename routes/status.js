@@ -22,7 +22,7 @@ router.get("/:playerKey", async (req, res) => {
 
 router.delete("/:playerKey", async (req, res) => {
   try {
-    const removedPlayer = await Player.deleteOne({ _id: req.params.playerKey });
+    const removedPlayer = await Player.deleteOne({ key: req.params.playerKey });
     res.json(removedPlayer);
   } catch (err) {
     res.json({ msg: "Erro ao tentar deletar os dados: ", err });
