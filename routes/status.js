@@ -13,7 +13,7 @@ router.get("/all", async (req, res) => {
 
 router.get("/:playerKey", async (req, res) => {
   try {
-    const player = await Player.findById(req.params.playerKey);
+    const player = await Player.findOne({ ket: req.params.playerKey });
     res.json(player);
   } catch (err) {
     res.json({ msg: "Erro ao tentar buscar os dados: ", err });
