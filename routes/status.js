@@ -15,9 +15,9 @@ router.get("/:playerKey", async (req, res) => {
   try {
     const player = await Player.findOne({ key: req.params.playerKey });
     console.log("Player: ", player);
-    res.json(player);
+    res.json({code: 12, ...player});
   } catch (err) {
-    res.json({ msg: "Erro ao tentar buscar os dados: ", err });
+    res.json({ code: 22, msg: "Erro ao tentar buscar os dados: ", err });
   }
 });
 
@@ -48,7 +48,21 @@ router.post("/new", async (req, res) => {
   }
 });
 
+/*
 router.patch("/:playerKey", async (req, res) => {
+  try {
+    const updatedPlayer = await Player.updateOne(
+      { key: req.params.playerKey },
+      { $set: req.body }
+    );
+    res.json({code: 11, ...updatedPlayer});
+  } catch (err) {
+    res.json({ code: 21, msg: "Erro ao tentar atualizar os dados: ", err });
+  }
+});
+*/
+
+router.put("/:playerKey", async (req, res) => {
   try {
     const updatedPlayer = await Player.updateOne(
       { key: req.params.playerKey },
