@@ -15,7 +15,7 @@ router.get("/:playerKey", async (req, res) => {
   try {
     const player = await Player.findOne({ key: req.params.playerKey });
     console.log("Player: ", player);
-    res.json({code: 12, ...player});
+    res.json({code: 12, player});
   } catch (err) {
     res.json({ code: 22, msg: "Erro ao tentar buscar os dados: ", err });
   }
@@ -42,7 +42,7 @@ router.post("/new", async (req, res) => {
   console.log(player);
   try {
     const savedPlayer = await player.save();
-    res.json({code: 10, ...savedPlayer});
+    res.json({code: 10, savedPlayer});
   } catch (err) {
     res.json({ code: 20, msg: "Erro ao tentar salvar os dados: ", err });
   }
@@ -68,7 +68,7 @@ router.put("/:playerKey", async (req, res) => {
       { key: req.params.playerKey },
       { $set: req.body }
     );
-    res.json({code: 11, ...updatedPlayer});
+    res.json({code: 11, updatedPlayer});
   } catch (err) {
     res.json({ code: 21, msg: "Erro ao tentar atualizar os dados: ", err });
   }
