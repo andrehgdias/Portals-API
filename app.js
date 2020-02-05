@@ -4,7 +4,6 @@ const cors = require('cors');
 const bodyParser = require("body-parser");
 
 // Importing routes
-const postsRoute = require("./routes/posts");
 const statusRoute = require("./routes/status");
 
 const app = express();
