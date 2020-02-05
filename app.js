@@ -26,7 +26,7 @@ mongoose.connect(
 // Middlewares
 app.use(cors());
 app.use(bodyParser.json()); // Adding a parser to convert any request body to json
-app.use("/status", statusRoute); // Any time we hit /posts we should use postsRoute
+app.use("/status", statusRoute); // Any time we hit /status we should use statusRoute
 
 
 // Routes

@@ -31,6 +31,7 @@ router.delete("/:playerKey", async (req, res) => {
 });
 
 router.post("/new", async (req, res) => {
+  console.log(req);
   const player = new Player({
     key: req.body.key,
     balance: req.body.balance,
@@ -38,7 +39,7 @@ router.post("/new", async (req, res) => {
     qtdEnergy: req.body.qtdEnergy,
     qtdBatteries: req.body.qtdBatteries
   });
-  console.log(req);
+  console.log(player);
   try {
     const savedPlayer = await player.save();
     res.json(savedPlayer);
