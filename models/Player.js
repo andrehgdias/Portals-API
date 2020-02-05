@@ -20,7 +20,7 @@ const playerSchema = mongoose.Schema({
   },
   qtdBatteries: {
     type: Number,
-    required: false
+    required: true
   },
   registrationDate: {
     type: Date,

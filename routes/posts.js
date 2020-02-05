@@ -38,7 +38,7 @@ router.post("/new", async (req, res) => {
     const savedPost = await post.save();
     res.json(savedPost);
   } catch (err) {
-    res.json({ msg: "Erro ao tentar salvar os dados: ", err });
+    res.json({ code: 20, msg: "Erro ao tentar salvar os dados", err });
   }
 });
 
@@ -50,7 +50,7 @@ router.patch("/:postId", async (req, res) => {
     );
     res.json(updatedPost);
   } catch (err) {
-    res.json({ msg: "Erro ao tentar atualizar os dados: ", err });
+    res.json({ code: 21, msg: "Erro ao tentar atualizar os dados", err });
   }
 });
 
