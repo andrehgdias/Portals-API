@@ -48,20 +48,6 @@ router.post("/new", async (req, res) => {
   }
 });
 
-/*
-router.patch("/:playerKey", async (req, res) => {
-  try {
-    const updatedPlayer = await Player.updateOne(
-      { key: req.params.playerKey },
-      { $set: req.body }
-    );
-    res.json({code: 11, ...updatedPlayer});
-  } catch (err) {
-    res.json({ code: 21, msg: "Erro ao tentar atualizar os dados: ", err });
-  }
-});
-*/
-
 router.put("/:playerKey", async (req, res) => {
   try {
     const updatedPlayer = await Player.updateOne(
