@@ -38,7 +38,7 @@ router.post("/new", async (req, res) => {
     qtdEnergy: req.body.qtdEnergy,
     qtdBatteries: req.body.qtdBatteries
   });
-  console.log(req.body);
+  console.log(req);
   try {
     const savedPlayer = await player.save();
     res.json(savedPlayer);
