@@ -33,7 +33,10 @@ router.delete("/:playerKey", async (req, res) => {
 router.post("/new", async (req, res) => {
   const player = new Player({
     key: req.body.key,
-    balance: req.body.balance
+    balance: req.body.balance,
+    qtdExp: req.body.qtdExp,
+    qtdEnergy: req.body.qtdEnergy,
+    qtdBatteries: req.body.qtdBatteries
   });
   try {
     const savedPlayer = await player.save();
