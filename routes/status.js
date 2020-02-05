@@ -42,7 +42,7 @@ router.post("/new", async (req, res) => {
   console.log(player);
   try {
     const savedPlayer = await player.save();
-    res.json(savedPlayer);
+    res.json({code: 10, ...savedPlayer});
   } catch (err) {
     res.json({ code: 20, msg: "Erro ao tentar salvar os dados: ", err });
   }
@@ -54,7 +54,7 @@ router.patch("/:playerKey", async (req, res) => {
       { key: req.params.playerKey },
       { $set: req.body }
     );
-    res.json(updatedPlayer);
+    res.json({code: 11, ...updatedPlayer});
   } catch (err) {
     res.json({ code: 21, msg: "Erro ao tentar atualizar os dados: ", err });
   }
