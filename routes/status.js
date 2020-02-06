@@ -15,7 +15,7 @@ router.get("/:playerKey", async (req, res) => {
   try {
     const player = await Player.findOne({ key: req.params.playerKey });
     console.log("Player: ", player);
-    res.json({code: 12, player});
+    res.json({code: 12, player: (player ? player : "null")});
   } catch (err) {
     res.json({ code: 22, msg: "Erro ao tentar buscar os dados: ", err });
   }
